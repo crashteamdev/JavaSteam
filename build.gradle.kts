@@ -14,7 +14,7 @@ plugins {
 }
 
 allprojects {
-    group = "in.dragonbra"
+    group = "dev.crashteam"
     version = "1.5.1"
 }
 
@@ -143,7 +143,7 @@ publishing {
             pom {
                 name.set("JavaSteam")
                 description.set("Java library to interact with Valve's Steam network.")
-                url.set("https://github.com/cramteamdev/JavaSteam")
+                url.set("https://github.com/crashteamdev/JavaSteam")
                 licenses {
                     license {
                         name.set("MIT License")
@@ -158,9 +158,9 @@ publishing {
                     }
                 }
                 scm {
-                    connection.set("scm:git:git://github.com/cramteamdev/JavaSteam.git")
-                    developerConnection.set("scm:git:ssh://github.com:cramteamdev/JavaSteam.git")
-                    url.set("https://github.com/cramteamdev/JavaSteam/tree/master")
+                    connection.set("scm:git:git://github.com/crashteamdev/JavaSteam.git")
+                    developerConnection.set("scm:git:ssh://github.com:crashteamdev/JavaSteam.git")
+                    url.set("https://github.com/crashteamdev/JavaSteam/tree/master")
                 }
             }
         }
@@ -168,7 +168,7 @@ publishing {
     repositories {
         maven {
             name = "GitHubPackages"
-            url = uri("https://maven.pkg.github.com/cramteamdev/JavaSteam")
+            url = uri("https://maven.pkg.github.com/crashteamdev/JavaSteam")
             credentials {
                 username = System.getenv("GITHUB_ACTOR") ?: "Longi94"
                 password = System.getenv("GITHUB_TOKEN") ?: ""
