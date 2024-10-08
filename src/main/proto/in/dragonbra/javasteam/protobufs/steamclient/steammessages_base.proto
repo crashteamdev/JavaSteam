@@ -335,3 +335,57 @@ message UserContentDescriptorPreferences {
 
 	repeated .UserContentDescriptorPreferences.ContentDescriptor content_descriptors_to_exclude = 1;
 }
+
+// Used by: AccountCart, Checkout
+message CartAmount {
+  optional int64 amount_in_cents = 1;
+  optional int32 currency_code = 2;
+  optional string formatted_amount = 3;
+}
+
+// Used by: AccountCart, Checkout
+message CartGiftInfo {
+  optional int32 accountid_giftee = 1;
+  optional .CartGiftMessage gift_message = 2;
+  optional int32 time_scheduled_send = 3;
+}
+
+// Used by: AccountCart, Checkout
+message CartGiftMessage {
+  optional string gifteename = 1;
+  optional string message = 2;
+  optional string sentiment = 3;
+  optional string signature = 4;
+}
+
+// Used by: AccountCart, Checkout
+message CartCoupon {
+  optional uint32 couponid = 1;
+  optional uint64 gidcoupon = 2;
+  optional string title = 5;
+  optional string coupon_description = 6;
+  optional string large_icon_url = 7;
+  optional int32 discount_pct = 8;
+}
+
+// Used by: AccountCart, Wishlist
+message CUserInterface_CuratorData {
+  optional uint32 clanid = 1;
+  optional uint64 listid = 2;
+}
+
+// Used by: AccountCart, Wishlist
+message CUserInterface_NavData {
+  optional string domain = 1;
+  optional string controller = 2;
+  optional string method = 3;
+  optional string submethod = 4;
+  optional string feature = 5;
+  optional uint32 depth = 6;
+  optional string countrycode = 7;
+  optional uint64 webkey = 8;
+  optional bool is_client = 9;
+  optional .CUserInterface_CuratorData curator_data = 10;
+  optional bool is_likely_bot = 11;
+  optional bool is_utm = 12;
+}

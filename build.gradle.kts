@@ -8,7 +8,6 @@ plugins {
     alias(libs.plugins.maven.publish)
     alias(libs.plugins.protobuf.gradle)
     id("jacoco")
-    id("signing")
     projectversiongen
     steamlanguagegen
     rpcinterfacegen
@@ -138,38 +137,42 @@ nexusPublishing {
 
 publishing {
     publications {
-        create<MavenPublication>("mavenJava") {
+        create<MavenPublication>("gpr") {
             from(components["java"])
             artifact(javadocArtifact)
             pom {
-                name = "JavaSteam"
-                packaging = "jar"
-                description = "Java library to interact with Valve's Steam network."
-                url = "https://github.com/Longi94/JavaSteam"
-                inceptionYear = "2018"
-                scm {
-                    connection = "scm:git:git://github.com/Longi94/JavaSteam.git"
-                    developerConnection = "scm:git:ssh://github.com:Longi94/JavaSteam.git"
-                    url = "https://github.com/Longi94/JavaSteam/tree/master"
-                }
+                name.set("JavaSteam")
+                description.set("Java library to interact with Valve's Steam network.")
+                url.set("https://github.com/cramteamdev/JavaSteam")
                 licenses {
                     license {
-                        name = "MIT License"
-                        url = "https://www.opensource.org/licenses/mit-license.php"
+                        name.set("MIT License")
+                        url.set("https://www.opensource.org/licenses/mit-license.php")
                     }
                 }
                 developers {
                     developer {
-                        id = "Longi"
-                        name = "Long Tran"
-                        email = "lngtrn94@gmail.com"
+                        id.set("Longi")
+                        name.set("Long Tran")
+                        email.set("lngtrn94@gmail.com")
                     }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/cramteamdev/JavaSteam.git")
+                    developerConnection.set("scm:git:ssh://github.com:cramteamdev/JavaSteam.git")
+                    url.set("https://github.com/cramteamdev/JavaSteam/tree/master")
                 }
             }
         }
     }
-}
-
-signing {
-    sign(publishing.publications["mavenJava"])
+    repositories {
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/cramteamdev/JavaSteam")
+            credentials {
+                username = System.getenv("GITHUB_ACTOR") ?: "Longi94"
+                password = System.getenv("GITHUB_TOKEN") ?: ""
+            }
+        }
+    }
 }
