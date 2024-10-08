@@ -123,18 +123,6 @@ dependencies {
     testImplementation(libs.bundles.testing)
 }
 
-/* Artifact publishing */
-nexusPublishing {
-    repositories {
-        sonatype {
-            val ossrhUsername: String by project
-            val ossrhPassword: String by project
-            username = ossrhUsername
-            password = ossrhPassword
-        }
-    }
-}
-
 publishing {
     publications {
         create<MavenPublication>("gpr") {
