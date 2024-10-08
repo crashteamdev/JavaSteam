@@ -98,6 +98,7 @@ class UnifiedInterfaceTest {
             "RemoteClientSteamClient.kt",
             "TwoFactor.kt",
             "UserAccount.kt",
+            "AccountCart.kt"
         )
     }
 }
