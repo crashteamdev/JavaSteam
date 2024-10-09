@@ -15,7 +15,7 @@ plugins {
 
 allprojects {
     group = "dev.crashteam"
-    version = "1.5.1"
+    version = "1.5.2"
 }
 
 repositories {
