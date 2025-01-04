@@ -54,10 +54,6 @@ data class LogOnDetails(
     var isSteamDeck: Boolean = false,
 ) {
     init {
-        var envName = System.getenv("COMPUTERNAME")
-        if (envName == null) {
-            envName = System.getenv("HOSTNAME")
-        }
-        machineName = "$envName (JavaSteam)"
+        machineName = System.getenv("COMPUTERNAME") ?: System.getenv("HOSTNAME") ?: "Default (CrashTeam.dev)"
     }
 }

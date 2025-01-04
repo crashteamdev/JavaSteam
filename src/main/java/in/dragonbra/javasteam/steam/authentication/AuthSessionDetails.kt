@@ -65,7 +65,7 @@ class AuthSessionDetails {
     var authenticator: IAuthenticator? = null
 
     init {
-        val machineName = System.getenv("COMPUTERNAME") ?: System.getenv("HOSTNAME")
-        deviceFriendlyName = "$machineName (JavaSteam)"
+        val machineName = System.getenv("COMPUTERNAME") ?: System.getenv("HOSTNAME") ?: "Default (CrashTeam.dev)"
+        deviceFriendlyName = machineName
     }
 }
